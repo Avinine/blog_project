@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>وبلاگوم</title>
+</head>
+<body>
+    <h1>\پستای وبلاگ</h1>
+    {% for post in posts %}
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.content }}</p>
+        <hr>
+    {% empty %}
+    <p>هنوز اینجا پستی نیست!</p>
+    {% endfor %}
+</body>
+</html>
