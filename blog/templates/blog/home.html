@@ -2,16 +2,17 @@
 <html lang="fa">
 <head>
     <meta charset="UTF-8">
-    <title>وبلاگوم</title>
+    <title>Main blog page</title>
 </head>
 <body>
-    <h1>\پستای وبلاگ</h1>
+    <h1>My blog</h1>
+
     {% for post in posts %}
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.content }}</p>
+        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+        <p>{{ post.content|truncatechars:100 }}</p>
         <hr>
     {% empty %}
-    <p>هنوز اینجا پستی نیست!</p>
+        <p>There are no posts here yet!</p>
     {% endfor %}
 </body>
 </html>

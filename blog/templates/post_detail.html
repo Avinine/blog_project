@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
+    <small>Published in {{ post.created_at|date:"Y/m/d H:i" }}</small>
+    <br><br>
+    <a href="/">Get back to the main page</a>
+</body>
+</html>
