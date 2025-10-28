@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Add new post{% endblock %}
+
+{% block content %}
+<h1>Add new post</h1>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label for="title">Title:</label><br>
+    <input type="text" id="title" name="title" style="width:100%; padding:8px; margin-top:5px; margin-bottom:15px; background-color:#1e1e1e; color:#e0e0e0; border:1px solid #444;"><br>
+
+    <label for="content">Content:</label><br>
+    <textarea id="content" name="content" rows="6" style="width:100%; padding:8px; margin-top:5px; margin-bottom:15px; background-color:#1e1e1e; color:#e0e0e0; border:1px solid #444;"></textarea><br>
+
+    <button type="submit" style="padding:10px 20px; background-color:#80cbc4; color:#121212; border:none; border-radius:5px; cursor:pointer;">ذخیره</button>
+</form>
+
+<hr>
+<a href="{% url 'home' %}">Back to main page</a>
+{% endblock %}

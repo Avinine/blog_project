@@ -1,18 +1,16 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-    <meta charset="UTF-8">
-    <title>Main blog page</title>
-</head>
-<body>
-    <h1>My blog</h1>
+{% extends 'blog/base.html' %}
 
-    {% for post in posts %}
-        <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-        <p>{{ post.content|truncatechars:100 }}</p>
-        <hr>
-    {% empty %}
-        <p>There are no posts here yet!</p>
-    {% endfor %}
-</body>
-</html>
+{% block title %}Main page{% endblock %}
+
+{% block content %}
+<h2>Posts</h2>
+{% for post in posts %}
+    <div class="post">
+        <h3><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h3>
+        <p>{{ post.body|truncatewords:20 }}</p>
+        <small>Published on: {{ post.created_at|date:"Y-m-d" }}</small>
+    </div>
+{% empty %}
+    <p>There are no posts here yet!</p>
+{% endfor %}
+{% endblock %}
