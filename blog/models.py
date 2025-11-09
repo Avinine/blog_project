@@ -1,9 +1,10 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 class Post(models.Model):
-    title = models.CharField(max_length=200)   # این عنوان پسته
-    content = models.TextField()               # این متن اصلیه
-    created_at = models.DateTimeField(auto_now_add=True)   # این زمان ایجادشه
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True) 
     
 def __str__(self):
     return self.title

@@ -20,3 +20,4 @@ staticfiles/
 # IDEs
 .vscode/
 .idea/
+blog/templates/post_detail.html
